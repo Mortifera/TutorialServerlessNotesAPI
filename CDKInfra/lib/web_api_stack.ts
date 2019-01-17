@@ -10,7 +10,7 @@ export class WebAPIStack extends cdk.Stack {
         const notesTable = new ddb.Table(this, "NotesTable", {
             billingMode: ddb.BillingMode.PayPerRequest,
             partitionKey: {
-                name: 'BookId',
+                name: 'NoteId',
                 type: ddb.AttributeType.String
             }
         });
