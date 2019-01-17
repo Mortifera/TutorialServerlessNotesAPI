@@ -22,7 +22,7 @@ namespace NotesBackendLambda
             this._routeHandler = routeHandler;
         }
 
-        public Function() : this(RouteHandlerBuilder.GetRouteHandler()) {
+        public Function() : this(new RouteHandlerBuilder().GetRouteHandler()) {
 
         }
 

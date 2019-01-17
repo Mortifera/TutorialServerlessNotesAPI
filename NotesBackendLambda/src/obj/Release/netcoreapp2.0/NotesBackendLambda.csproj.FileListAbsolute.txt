@@ -1,0 +1,11 @@
+C:\Users\jack_\Development\Tutorials\HelloWorldServerlessWebAPI\NotesBackendLambda\src\bin\Release\netcoreapp2.0\NotesBackendLambda.deps.json
+C:\Users\jack_\Development\Tutorials\HelloWorldServerlessWebAPI\NotesBackendLambda\src\bin\Release\netcoreapp2.0\NotesBackendLambda.runtimeconfig.json
+C:\Users\jack_\Development\Tutorials\HelloWorldServerlessWebAPI\NotesBackendLambda\src\bin\Release\netcoreapp2.0\NotesBackendLambda.runtimeconfig.dev.json
+C:\Users\jack_\Development\Tutorials\HelloWorldServerlessWebAPI\NotesBackendLambda\src\bin\Release\netcoreapp2.0\NotesBackendLambda.dll
+C:\Users\jack_\Development\Tutorials\HelloWorldServerlessWebAPI\NotesBackendLambda\src\bin\Release\netcoreapp2.0\NotesBackendLambda.pdb
+C:\Users\jack_\Development\Tutorials\HelloWorldServerlessWebAPI\NotesBackendLambda\src\obj\Release\netcoreapp2.0\NotesBackendLambda.csprojAssemblyReference.cache
+C:\Users\jack_\Development\Tutorials\HelloWorldServerlessWebAPI\NotesBackendLambda\src\obj\Release\netcoreapp2.0\NotesBackendLambda.csproj.CoreCompileInputs.cache
+C:\Users\jack_\Development\Tutorials\HelloWorldServerlessWebAPI\NotesBackendLambda\src\obj\Release\netcoreapp2.0\NotesBackendLambda.AssemblyInfoInputs.cache
+C:\Users\jack_\Development\Tutorials\HelloWorldServerlessWebAPI\NotesBackendLambda\src\obj\Release\netcoreapp2.0\NotesBackendLambda.AssemblyInfo.cs
+C:\Users\jack_\Development\Tutorials\HelloWorldServerlessWebAPI\NotesBackendLambda\src\obj\Release\netcoreapp2.0\NotesBackendLambda.dll
+C:\Users\jack_\Development\Tutorials\HelloWorldServerlessWebAPI\NotesBackendLambda\src\obj\Release\netcoreapp2.0\NotesBackendLambda.pdb

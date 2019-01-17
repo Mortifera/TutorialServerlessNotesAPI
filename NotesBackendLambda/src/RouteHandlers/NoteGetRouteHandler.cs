@@ -1,6 +1,6 @@
 using Amazon.Lambda.APIGatewayEvents;
 
-namespace NotesBackendLambda
+namespace NotesBackendLambda.RouteHandlers
 {
     public class NoteGetRouteHandler : IRouteHandler
     {
