@@ -28,10 +28,7 @@ namespace NotesBackendLambda
 
         public APIGatewayProxyResponse FunctionHandler(APIGatewayProxyRequest request, ILambdaContext context)
         {
-            return new APIGatewayProxyResponse() {
-                Body = "Not implemented",
-                StatusCode = (int) HttpStatusCode.InternalServerError
-            };
+            return _routeHandler.Handle(request);
         }
     }
 }
