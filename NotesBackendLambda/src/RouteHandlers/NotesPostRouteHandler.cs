@@ -36,7 +36,7 @@ namespace NotesBackendLambda.RouteHandlers
 
             var putTask = _dynamoDbTable.PutItemAsync(noteDocument);
             putTask.Wait();
-            
+
             if (!putTask.IsCompletedSuccessfully) {
                 return new APIGatewayProxyResponse() {
                     Body = "Unable to write item to database",
@@ -71,7 +71,7 @@ namespace NotesBackendLambda.RouteHandlers
         }
 
         private struct NotesPostResponse {
-            string NoteId { get; }
+            public string NoteId { get; }
 
             public NotesPostResponse(string noteId) {
                 this.NoteId = noteId;

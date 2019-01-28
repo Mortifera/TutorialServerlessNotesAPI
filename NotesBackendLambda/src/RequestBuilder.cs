@@ -22,26 +22,25 @@ namespace NotesBackendLambda
     public class RouteHandlerBuilder {
         private static FunctionLazyConfig Config = new FunctionLazyConfig();
 
-        
         public IRouteHandler GetRouteHandler() {
 
             var notesGetRoute = new Route() {
-                Path = "api/v1/notes",
+                Path = "/v1/notes",
                 Method = HttpMethod.GET
             };
 
             var notesPostRoute = new Route() {
-                Path = "api/v1/notes",
+                Path = "/v1/notes",
                 Method = HttpMethod.POST
             };
-            
+
             var noteGetRoute = new Route() {
-                Path = "api/v1/notes/{note_id}",
+                Path = "/v1/notes/{note_id}",
                 Method = HttpMethod.GET
             };
 
             var noteDeleteRoute = new Route() {
-                Path = "v1/ntoes/{note_id}",
+                Path = "/v1/notes/{note_id}",
                 Method = HttpMethod.DELETE
             };
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using Amazon.Lambda.APIGatewayEvents;
+using Newtonsoft.Json;
 
 namespace NotesBackendLambda
 {
@@ -15,24 +16,21 @@ namespace NotesBackendLambda
 
         public APIGatewayProxyResponse Handle(APIGatewayProxyRequest request)
         {
-            if (request.PathParameters == null) {
-                return new APIGatewayProxyResponse() {
-                    Body = "Given no path parameters",
-                    StatusCode = (int)HttpStatusCode.BadRequest
-                };
-            }
-            string pathToMatch = request.PathParameters.Aggregate(request.Path, 
+            var pathParams = request.PathParameters ?? new Dictionary<string, string>(); 
+
+            System.Console.WriteLine($"Incoming request: {JsonConvert.SerializeObject(request)}");
+            string pathToMatch = pathParams.Aggregate(request.Path, 
                             (current, keyValuePair) => current.Replace(keyValuePair.Value, "{" + keyValuePair.Key + "}"));
 
-            if (Enum.TryParse(request.HttpMethod, out HttpMethod httpMethod)) {
+            if (!Enum.TryParse(request.HttpMethod, out HttpMethod httpMethod)) {
                 return new APIGatewayProxyResponse() {
                     Body = "Invalid HTTP Method",
                     StatusCode = (int)HttpStatusCode.BadRequest
                 };
             }
-            
+
             var chosenRoute = _routesHandlers.Keys.Where(route => route.Path.Equals(pathToMatch) && route.Method.Equals(httpMethod));
-            
+
             if (!chosenRoute.Any()) {
                 return new APIGatewayProxyResponse() {
                     Body = $"Unable to handle route for path '{pathToMatch}', and http method '{httpMethod}'",
