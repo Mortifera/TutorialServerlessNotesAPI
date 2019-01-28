@@ -47,9 +47,9 @@ namespace NotesBackendLambda
             var noteModelMapper = new NoteDynamoDocumentMapper();
             var routeHandlerDictionary = new Dictionary<Route, IRouteHandler>() {
                 [notesPostRoute] = new NotesPostRouteHandler(Config.DynamoDbTable, noteModelMapper),
-                [notesGetRoute] = new NotesGetRouteHandler(),
-                [noteGetRoute] = new NoteGetRouteHandler(),
-                [noteDeleteRoute] = new NoteDeleteRouteHandler()
+                [notesGetRoute] = new NotesGetRouteHandler(Config.DynamoDbTable, noteModelMapper),
+                [noteGetRoute] = new NoteGetRouteHandler(Config.DynamoDbTable, noteModelMapper),
+                [noteDeleteRoute] = new NoteDeleteRouteHandler(Config.DynamoDbTable, noteModelMapper)
             };
 
             return new RequestRouter(routeHandlerDictionary);

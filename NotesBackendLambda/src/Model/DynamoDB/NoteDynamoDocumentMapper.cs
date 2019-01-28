@@ -4,14 +4,24 @@ using Amazon.DynamoDBv2.DocumentModel;
 namespace NotesBackendLambda.Model
 {
     public class NoteDynamoDocumentMapper {
-        /* 
-        public NoteWithId GetNoteFromDocument(Document noteDocument) {
-            throw new NotImplementedException();
-        }
-        public Note GetNoteWithIdFromDocument(Document noteDocument) {
-            throw new NotImplementedException();
+
+        public Note GetNoteFromDocument(Document noteDocument) {
+            return new Note() {
+                Title = noteDocument["Title"].AsString(),
+                Content = noteDocument["Content"].AsString(),
+                ModifiedTime = DateTimeOffset.FromUnixTimeSeconds(noteDocument["ModifiedTime"].AsLong())
+            };
         }
 
+        public NoteWithId GetNoteWithIdFromDocument(Document noteDocument) {
+            return new NoteWithId() {
+                NoteId = noteDocument["NoteId"].AsString(),
+                Title = noteDocument["Title"].AsString(),
+                Content = noteDocument["Content"].AsString(),
+                ModifiedTime = DateTimeOffset.FromUnixTimeSeconds(noteDocument["ModifiedTime"].AsLong())
+            };
+        }
+/* 
         public Document GetDocumentFromNote(Note note) {
             throw new NotImplementedException();
         }*/
