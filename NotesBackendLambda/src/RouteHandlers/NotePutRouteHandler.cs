@@ -1,6 +1,5 @@
 using System;
 using System.Net;
-using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.Lambda.APIGatewayEvents;
 using Newtonsoft.Json;
@@ -9,30 +8,37 @@ using NotesBackendLambda.Model;
 
 namespace NotesBackendLambda.RouteHandlers
 {
-    public class NotesPostRouteHandler : IRouteHandler
+    internal class NotePutRouteHandler : IRouteHandler
     {
-        private readonly Table _dynamoDbTable;
-        private readonly NoteDynamoDocumentMapper _noteDynamoDocumentMapper;
+        private Table _dynamoDbTable;
+        private NoteDynamoDocumentMapper _noteModelMapper;
 
-        public NotesPostRouteHandler(Table dynamoDbTable, NoteDynamoDocumentMapper noteDynamoDocumentMapper)
+        public NotePutRouteHandler(Table dynamoDbTable, NoteDynamoDocumentMapper noteModelMapper)
         {
-            _dynamoDbTable = dynamoDbTable;
-            _noteDynamoDocumentMapper = noteDynamoDocumentMapper;
+            this._dynamoDbTable = dynamoDbTable;
+            this._noteModelMapper = noteModelMapper;
         }
 
         public APIGatewayProxyResponse Handle(APIGatewayProxyRequest request)
         {
-            if (!ExtractRequiredData(request, out Note note)) {
+            if (!ExtractRequiredData(request, out string noteId, out Note note)) {
                 return new APIGatewayProxyResponse() {
                     Body = "Unable to extract note. Check the format is correct!",
                     StatusCode = (int) HttpStatusCode.BadRequest
                 };
             }
 
-            string noteId = Guid.NewGuid().ToString();
+            var noteWithId = _noteModelMapper.CreateNoteWithId(note, noteId);
+            var noteDocument = _noteModelMapper.CreateDocumentFromNote(noteWithId);
 
-            var noteWithId = _noteDynamoDocumentMapper.CreateNoteWithId(note, noteId);
-            var noteDocument = _noteDynamoDocumentMapper.CreateDocumentFromNote(noteWithId);
+            var numberOfNoteIds = _dynamoDbTable.Query(new QueryFilter("NoteId", QueryOperator.Equal, noteId)).Count;
+
+            if (numberOfNoteIds < 1) {
+                return new APIGatewayProxyResponse() {
+                    Body = $"Unable to PUT resourse with noteId '{noteId}' as it does not already exist. Please create note using POST",
+                    StatusCode = (int) HttpStatusCode.Forbidden
+                };
+            }
 
             var putTask = _dynamoDbTable.PutItemAsync(noteDocument);
             putTask.Wait();
@@ -45,16 +51,18 @@ namespace NotesBackendLambda.RouteHandlers
             }
 
             return new APIGatewayProxyResponse() {
-                Body = JsonConvert.SerializeObject(new NotesPostResponse(noteId)),
                 StatusCode = (int) HttpStatusCode.OK
             };
         }
 
-        private bool ExtractRequiredData(APIGatewayProxyRequest request, out Note note) {
-            if (request.Body == null) {
+        private bool ExtractRequiredData(APIGatewayProxyRequest request, out string noteId, out Note note) {
+            if (request.Body == null || request.PathParameters == null || !request.PathParameters.ContainsKey("note_id")) {
                 note = null;
+                noteId = null;
                 return false;
             }
+
+            noteId = request.PathParameters["note_id"];
 
             try {
                 var jobj = JObject.Parse(request.Body);
@@ -69,14 +77,5 @@ namespace NotesBackendLambda.RouteHandlers
                 return false;
             }
         }
-
-        private struct NotesPostResponse {
-            public string NoteId { get; }
-
-            public NotesPostResponse(string noteId) {
-                this.NoteId = noteId;
-            }
-        }
-
     }
 }

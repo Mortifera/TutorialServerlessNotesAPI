@@ -76,6 +76,12 @@ tests/cases/user/*/**/*.d.ts
 tests/baselines/reference/dt
 .failed-tests
 TEST-results.xml
+NotesBackendLambda/src/obj/
+NotesBackendLambda/test/obj/
+NotesBackendLambda/src/bin/
+NotesBackendLambda/src/out/
+NotesBackendLambda/test/bin/
+*.cache
 *.dll
 *.pdb
 package-lock.json

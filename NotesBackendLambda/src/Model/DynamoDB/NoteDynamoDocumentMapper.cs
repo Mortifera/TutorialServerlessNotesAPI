@@ -35,7 +35,7 @@ namespace NotesBackendLambda.Model
             };
         }
 
-        public Document GetDocumentFromNote(NoteWithId note) {
+        public Document CreateDocumentFromNote(NoteWithId note) {
             return new Document() {
                 ["NoteId"] = note.NoteId,
                 ["Title"] = note.Title,

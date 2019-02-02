@@ -39,6 +39,11 @@ namespace NotesBackendLambda
                 Method = HttpMethod.GET
             };
 
+            var notePutRoute = new Route() {
+                Path = "/v1/notes/{note_id}",
+                Method = HttpMethod.PUT
+            };
+
             var noteDeleteRoute = new Route() {
                 Path = "/v1/notes/{note_id}",
                 Method = HttpMethod.DELETE
@@ -49,6 +54,7 @@ namespace NotesBackendLambda
                 [notesPostRoute] = new NotesPostRouteHandler(Config.DynamoDbTable, noteModelMapper),
                 [notesGetRoute] = new NotesGetRouteHandler(Config.DynamoDbTable, noteModelMapper),
                 [noteGetRoute] = new NoteGetRouteHandler(Config.DynamoDbTable, noteModelMapper),
+                [notePutRoute] = new NotePutRouteHandler(Config.DynamoDbTable, noteModelMapper),
                 [noteDeleteRoute] = new NoteDeleteRouteHandler(Config.DynamoDbTable, noteModelMapper)
             };
 
