@@ -1,4 +1,4 @@
-namespace NotesBackendLambda
+namespace NotesBackendLambda.Routing
 {
     public struct Route
     {

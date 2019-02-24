@@ -3,6 +3,7 @@ using System.Net;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.Lambda.APIGatewayEvents;
 using NotesBackendLambda.Model;
+using NotesBackendLambda.Routing;
 
 namespace NotesBackendLambda.RouteHandlers
 {

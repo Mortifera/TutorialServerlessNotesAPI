@@ -5,6 +5,7 @@ using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.Lambda.APIGatewayEvents;
 using Newtonsoft.Json;
 using NotesBackendLambda.Model;
+using NotesBackendLambda.Routing;
 
 namespace NotesBackendLambda.RouteHandlers
 {
@@ -51,7 +52,7 @@ namespace NotesBackendLambda.RouteHandlers
                     Body = JsonConvert.SerializeObject(new NoteGetRouteHandlerResponse(note)),
                     StatusCode = (int) HttpStatusCode.OK
                 };
-            } catch (Exception ex) {
+            } catch (Exception) {
                 return new APIGatewayProxyResponse() {
                     Body = $"Unable to serialize note {noteId}",
                     StatusCode = (int) HttpStatusCode.InternalServerError

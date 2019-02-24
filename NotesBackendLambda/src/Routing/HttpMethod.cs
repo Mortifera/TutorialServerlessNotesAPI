@@ -1,4 +1,4 @@
-namespace NotesBackendLambda
+namespace NotesBackendLambda.Routing
 {
     public enum HttpMethod
     {
@@ -11,5 +11,5 @@ namespace NotesBackendLambda
         OPTIONS,
         TRACE,
         PATCH
-}
+    }
 }

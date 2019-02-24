@@ -5,7 +5,7 @@ using System.Net;
 using Amazon.Lambda.APIGatewayEvents;
 using Newtonsoft.Json;
 
-namespace NotesBackendLambda
+namespace NotesBackendLambda.Routing
 {
     public class RequestRouter : IRouteHandler {
         private readonly Dictionary<Route, IRouteHandler> _routesHandlers;
@@ -29,16 +29,19 @@ namespace NotesBackendLambda
                 };
             }
 
-            var chosenRoute = _routesHandlers.Keys.Where(route => route.Path.Equals(pathToMatch) && route.Method.Equals(httpMethod));
+            var chosenRoute = new Route() {
+                Path = pathToMatch,
+                Method = httpMethod
+            };
 
-            if (!chosenRoute.Any()) {
+            if (!_routesHandlers.ContainsKey(chosenRoute)) {
                 return new APIGatewayProxyResponse() {
                     Body = $"Unable to handle route for path '{pathToMatch}', and http method '{httpMethod}'",
                     StatusCode = (int) HttpStatusCode.NotFound
                 };
             }
-            
-            return _routesHandlers[chosenRoute.First()].Handle(request);
+
+            return _routesHandlers[chosenRoute].Handle(request);
         }
     }
 }

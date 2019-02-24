@@ -21,10 +21,6 @@ namespace NotesBackendLambda.Model
                 ModifiedTime = DateTimeOffset.FromUnixTimeSeconds(noteDocument["ModifiedTime"].AsLong())
             };
         }
-/* 
-        public Document GetDocumentFromNote(Note note) {
-            throw new NotImplementedException();
-        }*/
 
         public NoteWithId CreateNoteWithId(Note note, string noteId) {
             return new NoteWithId() {

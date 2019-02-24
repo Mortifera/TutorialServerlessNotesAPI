@@ -5,6 +5,7 @@ using Amazon.Lambda.APIGatewayEvents;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NotesBackendLambda.Model;
+using NotesBackendLambda.Routing;
 
 namespace NotesBackendLambda.RouteHandlers
 {
@@ -72,7 +73,7 @@ namespace NotesBackendLambda.RouteHandlers
                     ModifiedTime = DateTimeOffset.FromUnixTimeSeconds(jobj["ModifiedTime"].ToObject<long>())
                 };
                 return true;
-            } catch(Exception ex) {
+            } catch(Exception) {
                 note = null;
                 return false;
             }
