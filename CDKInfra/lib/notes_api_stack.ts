@@ -28,11 +28,10 @@ export class WebAPIStack extends cdk.Stack {
 
         notesTable.grantFullAccess(lamdbaFunction.role);
 
-        const notesBackend = new apig.LambdaIntegration(lamdbaFunction, {
-            proxy: true
-        })
         const api = new apig.RestApi(this, 'NotesAPI', {
-            defaultIntegration: notesBackend
+            defaultIntegration: new apig.LambdaIntegration(lamdbaFunction, {
+                proxy: true
+            })
         });
 
         const v1ApiResource = api.root.addResource('v1');
