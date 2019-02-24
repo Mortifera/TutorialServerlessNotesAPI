@@ -2,7 +2,6 @@ import cdk = require('@aws-cdk/cdk');
 import ddb = require('@aws-cdk/aws-dynamodb');
 import lambda = require('@aws-cdk/aws-lambda');
 import apig = require('@aws-cdk/aws-apigateway');
-import { Output } from '@aws-cdk/cdk';
 
 export class WebAPIStack extends cdk.Stack {
     constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
