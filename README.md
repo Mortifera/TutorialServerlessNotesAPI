@@ -29,6 +29,7 @@ The API Gateway sends all the requests the Lambda which handles all the above lo
 1. ```dotnet build```
 1. ```dotnet publish -c Release -o out```
 1. ```cd ../../../CDKInfra```
+1. ```npm install```
 1. ```npm run build```
 1. ```cdk deploy```
 
