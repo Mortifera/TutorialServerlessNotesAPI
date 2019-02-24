@@ -22,7 +22,7 @@ The API Gateway sends all the requests the Lambda which handles all the above lo
 1. Install [npm](https://www.npmjs.com/get-npm)
 1. Install [.NET Core](https://dotnet.microsoft.com/download)
 1. Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html).
-1. Install AWS CDK command line tool ```npm install -g aws-cdk```. Morei nformation at [AWS CDK docs](https://awslabs.github.io/aws-cdk/getting-started.html).
+1. Install AWS CDK command line tool ```npm install -g aws-cdk```. More information at [AWS CDK docs](https://awslabs.github.io/aws-cdk/getting-started.html).
 1. Setup an AWS IAM user that has AdministratorAccess policy attatched. Make sure to create it with programmatic access.
 1. ```aws configure``` and put in the access key id and secret access key given by AWS on creation of the IAM user.
 1. ```cd NotesBackendLambda/src/NotesBackendLambda```
