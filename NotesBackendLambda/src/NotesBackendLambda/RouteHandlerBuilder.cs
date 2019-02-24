@@ -7,22 +7,7 @@ using NotesBackendLambda.Routing;
 
 namespace NotesBackendLambda
 {
-
-    public class FunctionLazyConfig {
-
-        private IAmazonDynamoDB _dynamoDbClient = null;
-
-        public IAmazonDynamoDB DynamoDbClient => _dynamoDbClient == null ? (_dynamoDbClient = new AmazonDynamoDBClient()) : _dynamoDbClient;
-
-        public string DynamoTableName => System.Environment.GetEnvironmentVariable("NOTES_TABLE_NAME"); 
-        
-        private Table _dynamoDbTable = null;
-        public Table DynamoDbTable => _dynamoDbTable == null ? (_dynamoDbTable = Table.LoadTable(DynamoDbClient, DynamoTableName)) : _dynamoDbTable;
-    }
-
     public class RouteHandlerBuilder {
-        private static FunctionLazyConfig Config = new FunctionLazyConfig();
-
         public IRouteHandler GetRouteHandler() {
 
             var notesGetRoute = new Route() {

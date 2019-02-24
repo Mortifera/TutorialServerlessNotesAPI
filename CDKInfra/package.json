@@ -1,8 +1,8 @@
 {
-  "name": "cdk_infra",
+  "name": "notes_api_infra",
   "version": "0.1.0",
   "bin": {
-    "cdk_infra": "bin/cdk_infra.js"
+    "notes_api_infra": "bin/notes_api_app.js"
   },
   "scripts": {
     "build": "tsc",

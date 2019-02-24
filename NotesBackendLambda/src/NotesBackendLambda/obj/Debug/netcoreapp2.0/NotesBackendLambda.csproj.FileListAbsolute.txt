@@ -1,0 +1,11 @@
+/home/jack/Development/TutorialServerlessNotesAPI/NotesBackendLambda/src/NotesBackendLambda/bin/Debug/netcoreapp2.0/NotesBackendLambda.deps.json
+/home/jack/Development/TutorialServerlessNotesAPI/NotesBackendLambda/src/NotesBackendLambda/bin/Debug/netcoreapp2.0/NotesBackendLambda.runtimeconfig.json
+/home/jack/Development/TutorialServerlessNotesAPI/NotesBackendLambda/src/NotesBackendLambda/bin/Debug/netcoreapp2.0/NotesBackendLambda.runtimeconfig.dev.json
+/home/jack/Development/TutorialServerlessNotesAPI/NotesBackendLambda/src/NotesBackendLambda/bin/Debug/netcoreapp2.0/NotesBackendLambda.dll
+/home/jack/Development/TutorialServerlessNotesAPI/NotesBackendLambda/src/NotesBackendLambda/bin/Debug/netcoreapp2.0/NotesBackendLambda.pdb
+/home/jack/Development/TutorialServerlessNotesAPI/NotesBackendLambda/src/NotesBackendLambda/obj/Debug/netcoreapp2.0/NotesBackendLambda.csprojAssemblyReference.cache
+/home/jack/Development/TutorialServerlessNotesAPI/NotesBackendLambda/src/NotesBackendLambda/obj/Debug/netcoreapp2.0/NotesBackendLambda.csproj.CoreCompileInputs.cache
+/home/jack/Development/TutorialServerlessNotesAPI/NotesBackendLambda/src/NotesBackendLambda/obj/Debug/netcoreapp2.0/NotesBackendLambda.AssemblyInfoInputs.cache
+/home/jack/Development/TutorialServerlessNotesAPI/NotesBackendLambda/src/NotesBackendLambda/obj/Debug/netcoreapp2.0/NotesBackendLambda.AssemblyInfo.cs
+/home/jack/Development/TutorialServerlessNotesAPI/NotesBackendLambda/src/NotesBackendLambda/obj/Debug/netcoreapp2.0/NotesBackendLambda.dll
+/home/jack/Development/TutorialServerlessNotesAPI/NotesBackendLambda/src/NotesBackendLambda/obj/Debug/netcoreapp2.0/NotesBackendLambda.pdb

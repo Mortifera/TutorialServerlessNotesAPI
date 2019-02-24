@@ -17,7 +17,7 @@ export class WebAPIStack extends cdk.Stack {
         });
 
         const lamdbaFunction = new lambda.Function(this, "BackendLambdaFunction", {
-            code: new lambda.AssetCode("../NotesBackendLambda/src/out"),
+            code: new lambda.AssetCode("../NotesBackendLambda/src/NotesBackendLambda/out"),
             handler: "NotesBackendLambda::NotesBackendLambda.Function::FunctionHandler",
             timeout: 30,
             runtime: lambda.Runtime.DotNetCore21,
