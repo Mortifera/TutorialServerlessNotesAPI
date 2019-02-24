@@ -1,0 +1,3 @@
+{
+  "app": "node bin/notes_api_app.js"
+}
