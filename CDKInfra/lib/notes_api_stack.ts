@@ -44,9 +44,5 @@ export class WebAPIStack extends cdk.Stack {
         note.addMethod('GET');
         note.addMethod('PUT');
         note.addMethod('DELETE');
-
-        new Output(this, "APIEndpoint", {
-            value: api.url
-        });
     }
 }
