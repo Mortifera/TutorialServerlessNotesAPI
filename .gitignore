@@ -76,11 +76,10 @@ tests/cases/user/*/**/*.d.ts
 tests/baselines/reference/dt
 .failed-tests
 TEST-results.xml
-NotesBackendLambda/src/obj/
-NotesBackendLambda/test/obj/
-NotesBackendLambda/src/bin/
-NotesBackendLambda/src/out/
-NotesBackendLambda/test/bin/
+NotesBackendLambda/src/NotesBackendLambda/obj/
+NotesBackendLambda/src/NotesBackendLambda/bin/
+NotesBackendLambda/src/NotesBackendLambda/out/
+
 *.cache
 *.dll
 *.pdb
